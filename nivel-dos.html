@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nivel Dos</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/estilos.css">
+    <link rel="stylesheet" href="fonts/webfontkit-20200430-184416/stylesheet.css">
+    
+    <style>
+    body {
+       background-image: url("imagenes/fondo-niveles.jpg");
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+}
+    </style>
+</head>
+<body>
+   <div class="nivel-uno">
+    <h1>NIVEL DOS</h1>
+    
+    <div class="aciertos">
+        <img src="imagenes/duff-01.png" alt="duff">
+        <img src="imagenes/duff-01.png" alt="duff">
+        <img src="imagenes/duff-01.png" alt="duff">      
+    </div>
+
+    <div id="modelo">
+        
+    </div>
+
+    <div id="salieron">
+       
+    </div>
+  <!-------------------------------------VENTANA GANAR JUEGO-->
+       <div class="ventana">
+          <h2>Felicitaciones</h2>
+          <p>Conseguiste 6 cervezas Duff</p>
+              <div>
+                <img src="imagenes/duff-01.png" alt="duff">
+                <img src="imagenes/duff-01.png" alt="duff">
+                <img src="imagenes/duff-01.png" alt="duff">
+                <img src="imagenes/duff-01.png" alt="duff">
+                <img src="imagenes/duff-01.png" alt="duff">
+                <img src="imagenes/duff-01.png" alt="duff">     
+              </div>
+          <p>Justo para celebrar que aprobaste este final</p>
+          <li><a href="index.html">Inicio</a></li>
+       </div>
+   <!-------------------------------------VENTANA PERDER JUEGO-->     
+       <div class="ventana-error"> 
+             <h2>Ouch!!!</h2>
+             <p>Eso estuvo cerca</p>
+                 <div>
+                    <img src="imagenes/cerveza-ouch.png" alt="duff">
+                 </div>
+             <li><a href="#">Volver a intentar</a></li>
+       </div>
+
+  </div>
+   
+   
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        
+        var aciertos =0;
+        
+        var cervezas = $(".aciertos img")
+
+        var imagenes = [
+            'alegrias',
+            'carloslenny',
+            'krusty',
+            'milhouse',
+            'radioactivo',
+            'burns'
+        ];
+
+        var salieron = [];
+
+        var azar = 0;
+/**---------------------------------------------------FUNCION JUEGO-->   */
+        
+        function juego(){
+            
+/**---------------------------------------------------VACIAR IMAGENES-->   */            
+            
+        azar = Math.floor(Math.random() * imagenes.length);
+
+        $('#modelo').append('<img src="siluetas/' + imagenes[azar] + '.png" alt="' + imagenes[azar] + '">');
+
+        while (salieron.length != imagenes.length) {
+
+            do {
+
+                azar = Math.floor(Math.random() * imagenes.length);
+                console.log(azar);
+
+            } while (salieron.indexOf(azar) != -1);
+
+            salieron.push(azar);
+
+            console.log(salieron);
+
+
+        }
+
+        for (var i in salieron) {
+           $('#salieron').append('<img src="imagenes/' + imagenes[salieron[i]] +'.jpg" alt ="'+ imagenes[salieron[i]]+'">');
+        }
+       
+        
+
+       } 
+         juego();
+        
+
+        $('#salieron').on('click',"img", function() {
+
+
+            if ($(this).attr('alt') == $('#modelo img').attr('alt')) {
+                
+ 
+                $('#modelo img').css("-webkit-filter", "grayscale(0%)")
+                $('#modelo img').css("-webkit-filter", "brightness(1)");
+                $('#modelo img').css("filtrer", "grayscale(0%)");
+                $('#modelo img').css("filtrer", "brightness(1)");
+   
+
+                $(cervezas[aciertos]).css("display", "inline-block");
+
+
+                aciertos++;
+                console.log(aciertos);
+
+                setTimeout(function() { 
+                    $("#modelo, #salieron").empty();
+                    salieron = [];
+                    azar = 0;
+                
+                    juego();
+                }, 1000); 
+                
+
+
+
+            if(aciertos>2){
+
+                    $(".ventana").css("display","inline-block");
+                }
+
+            } else {
+
+                $(".ventana-error").css("display","inline-block");
+           
+
+        }
+    });
+        
+        $(".ventana-error a").on("click", function(ev){
+            ev.preventDefault();
+            
+            salieron = [];
+            azar = 0;
+                
+            $(".ventana-error").css("display","none");
+            $("#modelo, #salieron").empty();
+            console.log(salieron);
+            console.log(azar);
+            juego();
+        })
+    </script>
+    
+</body>
+</html>

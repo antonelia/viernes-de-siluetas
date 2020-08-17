@@ -1,0 +1,327 @@
+/***********ESTILOS GENERALES*/
+li{
+    list-style: none;
+}
+
+ul{
+    overflow: hidden;
+    height: 45vh;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+body{
+    background: #37c3f4;
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    
+}
+
+.nubes{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+/**********************animaciones nubes*******/
+.nubesChicas {
+  animation-duration: 250s;
+  animation-name: slidein;
+  z-index: -5;
+}
+
+main{
+    position:sticky;
+}
+
+
+@keyframes slidein {
+  from {
+    margin-left: 0%;
+
+  }
+
+  to {
+     margin-left: -150%;
+
+  }
+}
+
+.nubesGrandes {
+  animation-duration: 120s;
+  animation-name: slidein;
+  z-index: -1;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 0%;
+
+  }
+
+  to {
+    margin-left: -150%;
+
+  }
+}
+
+
+
+/******************************************index*/
+
+.contenedorUno ul li a:hover{
+    background: #ff4e00;
+}
+
+.contenedorUno{
+
+    height: 100%;
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    color: #efef29;
+    text-shadow: 0.2em 0.2em rgba(51, 51, 51, 0.47);
+    margin-top: 12%;
+}
+
+.contenedorUno h1{
+    font-size: 5em;
+    
+}
+
+.contenedorUno h2{
+    font-size: 2em;
+}
+
+.contenedorUno ul li a{
+    background: #ff9300;
+    padding: .3em .8em;
+    font-size: 2em;
+    color: white;
+    border-radius: 25px
+
+}
+
+.contenedorUno nav{
+    margin-top: 3%;
+}
+
+.contenedorUno ul li {
+    margin-top: 2em;
+    transition: transform .2s; 
+    transition-timing-function: ease-in-out;
+}
+
+.contenedorUno ul li:hover {
+   
+    transform: scale(1.1);
+    
+}
+
+/****************************************CREDITOS*******/
+
+.contenedorCreditos, .contenedorInstrucciones{
+    height: 100%;
+    text-align: center;
+    font-family: 'simpsonfontregular';
+    color: #efef29;
+    text-shadow: 0.2em 0.2em rgba(51, 51, 51, 0.47);
+    margin-top: 10%;
+}
+
+.contenedorCreditos h2, .contenedorInstrucciones h2{
+    font-size: 3.5em;
+    text-shadow: 0.1em 0.1em rgba(51, 51, 51, 0.47);
+
+}
+
+.contenedorCreditos p{
+    font-size: 2em;
+    margin-top: 5%;
+    text-shadow: 0.1em 0.1em rgba(51, 51, 51, 0.47);
+}
+
+aside{
+    width: 20vw;
+    position: fixed;
+    left: 80%;
+    top: 80%;
+    transition: transform .2s; 
+    transition-timing-function: ease-in-out;
+    
+}
+
+/*************BOTON BACK******/
+
+aside a{
+    background: #ff9300;
+    padding: 2em;
+    padding-bottom: 2.5em;
+    border-radius: 120px;
+ 
+}
+
+
+aside img{
+    max-width: 25%;
+}
+
+aside a:hover{
+    background: #ff4e00;
+
+}
+
+aside:hover{
+        transform: scale(1.3);
+}
+
+
+/*****************************INSTRUCCIONES*****/
+
+.contenedorInstrucciones{
+    margin-top: 4%;
+}
+
+.contenedorInstrucciones img{
+    display: inline-block;
+    
+}
+
+.contenedorInstrucciones p{ 
+    font-size: 3em;
+    display: inline-block;
+    width: 70vw;
+}
+
+.imgInstrucciones{
+
+    height: 15em;
+}
+
+/**************************************NIVEL UNO*******/
+
+
+.nivel-uno h1{
+    margin: 1em;
+    margin-bottom: 0.5em;
+    font-size: 3em;
+    text-shadow: 0.1em 0.1em rgba(51, 51, 51, 0.47);
+    color: #000000;
+    
+}
+
+#modelo{
+    border: #ff4e00 solid 10px;
+    width: 20%;
+    border-radius: 30px;
+    margin: auto;
+    height: 20%;
+    background: white;
+}
+
+#modelo img{
+    -webkit-filter: grayscale(100%) brightness(0);
+    filter: grayscale(100%) brightness(0);
+}
+
+#salieron{
+    margin-top: 2em;
+    width: 90vw;
+    margin: auto;
+}
+
+#salieron img{
+    border: #ff4e00 solid 10px;
+    margin: 0.5em;
+    border-radius: 30px;
+    transition: transform .2s;
+    width: 13vw;
+}
+
+#salieron img:hover{
+    transform: scale(1.3);
+  
+}
+
+.aciertos{
+    position: absolute;
+    left: 85vw;
+    top: 5vh;
+}
+
+.aciertos img{
+    display: none;
+    height: 80px;;
+    transition: transform .2s; 
+    transition-timing-function: ease-in-out;
+}
+
+
+/********************************VENTANA GANAR PERDER******/
+
+.ventana, .ventana-error{
+    background: #37c3f4;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    width: 50%;
+    height: 80%;
+    display: ;
+    margin: auto;
+    border: #ff9300 solid 10px;
+    text-align: center;
+    border-radius: 50px;
+    color: #efef29;
+    text-shadow: 0.1em 0.1em rgba(51, 51, 51, 0.47);
+    display: none;
+}
+
+.ventana h2, .ventana-error h2{
+    font-size: 4em;
+    margin-bottom: .5em;
+}
+
+.ventana p, .ventana-error p{
+    font-size: 2em;
+}
+
+
+
+.ventana li, .ventana-error li{
+    transition: transform .2s; 
+    transition-timing-function: ease-in-out;
+     margin-top: 5em;
+}
+
+.ventana a, .ventana-error a{
+    background: #ff9300;
+    font-size: 2.5em;
+    padding: .5em .8em;;
+    border-radius: 2em;
+    color: white;
+    
+}
+
+.ventana img{
+    height: 10em;
+}
+
+.ventana a:hover, .ventana-error a:hover{
+    background: #ff4e00;
+
+}
+
+.ventana li:hover, .ventana-error li:hover {
+    transform: scale(1.3);
+}
+
+#modelo img, #salieron img{
+    max-width: 100%;
+}
+
+
